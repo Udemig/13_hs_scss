@@ -1,0 +1,24 @@
+// Scss Variables
+
+$bg-primary: green;
+$bg-secondary: blue;
+$box-width: 40px;
+$box-height: 50px;
+
+.box {
+  width: $box-width;
+  height: $box-height;
+  margin: 40px;
+}
+
+.bx-1 {
+  background-color: $bg-primary;
+}
+
+.bx-2 {
+  background-color: blue;
+}
+
+.bx-3 {
+  background-color: $bg-primary;
+}
