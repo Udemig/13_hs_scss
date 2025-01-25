@@ -1,0 +1,27 @@
+// * Scss Mixin
+
+@mixin project-btn {
+  border: none;
+  outline: none;
+  padding: 8px 13px;
+  background: transparent;
+  background-color: brown;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    scale: 0.5;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 700px) {
+    @content;
+  }
+}

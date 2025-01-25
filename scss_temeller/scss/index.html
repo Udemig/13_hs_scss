@@ -6,6 +6,14 @@
     <title>Scss</title>
     <!-- * Css Link -->
     <link rel="stylesheet" href="./style/style.css" />
+    <!-- * Font Awesome Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <!-- * Scss css'in sahip olduğu tüm özellikler üzerine css'in sahip olmadığı özellikleri kullanmamızı sağlayan bir bir stillendirme dilidir.
@@ -21,16 +29,100 @@
 
     2-) Nesting Yazım
 
-    3-) Extend
+    3-) Extend Yapısı
 
     4-) Modüler Scss Dosyaları
+
+    5-) Mixins
 
 
     -->
 
+    <!-- * Scss Nesting Example -->
+
+    <header>
+      <!-- Logo -->
+      <div class="logo">
+        <h1>Udemig</h1>
+      </div>
+
+      <!-- Nav -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Ana Sayfa</a>
+          </li>
+          <li>
+            <a href="#">Hakkımızda</a>
+          </li>
+          <li>
+            <a href="#">İletişim</a>
+          </li>
+          <li>
+            <a href="#">Eğitimler</a>
+          </li>
+          <li>
+            <a href="#">Sosyal Medya</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button>
+          <i class="fa-solid fa-right-to-bracket"></i> <span>Giriş Yap</span>
+        </button>
+        <button>
+          <i class="fa-solid fa-user-plus"></i> <span> Kaydol </span>
+        </button>
+      </div>
+    </header>
+
+    <div class="boxs">
+      <div class="boxs-">
+        <div class="boxs-container-eleman">
+          <h1>Eleman</h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- * Scss Variables Example -->
     <div class="box bx-1"></div>
     <div class="box bx-2"></div>
     <div class="box bx-1"></div>
     <div class="box bx-2"></div>
+    <div class="box bx-3"></div>
+
+    <!-- * Scss Extend Example -->
+
+    <div class="heading-container">
+      <h1>Udemig</h1>
+      <h1>Udemig</h1>
+      <h1>Udemig</h1>
+      <h1>Udemig</h1>
+    </div>
+    <div class="buttons-container">
+      <button>Html Öğren</button>
+      <button>Css Öğren</button>
+      <button>Bootstrap Öğren</button>
+      <button>Scss Öğren</button>
+      <button>Js Öğren</button>
+    </div>
+
+    <!-- * Scss Modules Example -->
+
+    <div class="main">
+      <div class="left">
+        <h1>Sol</h1>
+        <button class="example-btn">Tıkla</button>
+      </div>
+      <div class="center">
+        <h1>Orta</h1>
+      </div>
+      <div class="right">
+        <h1>Sağ</h1>
+        <button class="example-btn">Tıkla</button>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,9 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+@import "./mixin";
 // Scss Variables
 
-$bg-primary: green;
+// Scss variables'ları sayesinde proje içerisinde kullanılan renk, font, boyut gibi değerleri değişkenler vasıtasıyla daha kolay yönetebiliriz.Scss variables ları oluşturulurken variables başına '$' işareti konulur sonrasında variables'a bir isim verilir.Verilen isimin sonrasında : koyulup variables'a bir değer atanır.
+
+$bg_primary: green;
 $bg-secondary: blue;
 $box-width: 40px;
 $box-height: 50px;
+$border_radius: 10px;
+$border: 2px solid white;
+$header-bg: #fcc6ff;
 
 .box {
   width: $box-width;
@@ -21,4 +35,193 @@ $box-height: 50px;
 
 .bx-3 {
   background-color: $bg-primary;
+  border-radius: $border_radius;
+  border: $border;
+}
+
+// Scss Nesting
+
+// Css'de kapsam içerisindeki elemanlara erişip stillendirirken çokça kez aynı kelimeleri yazmak durumunda kalırız.Bunu önlemek için scss nesting yapısı kullanılır.Bu yapıda bir kapsama gereken still özellikleri verildilten sonra bunun içerisindeki elemanlarada stillendirmeler {}'lere dikkat ederek yazılabilir.
+
+// header {
+//   background-color: $header-bg;
+//   padding: 10px 20px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
+// header .logo {
+//   border: $border;
+//   border-radius: $border_radius;
+//   padding: 10px 15px;
+// }
+// header .logo h1 {
+//   font-family: Arial, Helvetica, sans-serif;
+//   transition: all 0.5s;
+// }
+// header .logo h1:hover {
+//   scale: 0.8;
+// }
+
+// header nav ul {
+//   display: flex;
+//   align-items: center;
+//   gap: 5px;
+// }
+// header nav ul li a {
+//   color: white;
+//   font-size: 20px;
+//   border-bottom: 5px;
+//   transition: all 0.5s;
+// }
+// header nav ul li a:hover {
+//   border-bottom: $border;
+// }
+
+// header .buttons {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+// }
+
+// header .buttons button {
+//   border: none;
+//   outline: none;
+//   padding: 5px 8px;
+//   border-radius: $border_radius;
+//   background: none;
+//   border: $border;
+//   color: white;
+//   transition: all 0.5s;
+// }
+// header .buttons button:hover {
+//   background-color: white;
+//   border-color: $header-bg;
+//   color: black;
+// }
+
+header {
+  background-color: $header-bg;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // Logo
+  .logo {
+    border: $border;
+    border-radius: $border_radius;
+    padding: 10px 15px;
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      transition: all 0.5s;
+      &:hover {
+        scale: 0.8;
+      }
+    }
+  }
+  // Nav
+  nav {
+    @include laptop {
+      display: none;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      li a {
+        color: white;
+        font-size: 20px;
+        border-bottom: 5px;
+        transition: all 0.5s;
+        &:hover {
+          border-bottom: $border;
+        }
+      }
+    }
+  }
+  // Buttons
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include tablet {
+      display: none;
+    }
+    button {
+      border: none;
+      outline: none;
+      padding: 5px 8px;
+      border-radius: $border_radius;
+      background: none;
+      border: $border;
+      color: white;
+      transition: all 0.5s;
+      &:hover {
+        background-color: white;
+        border-color: $header-bg;
+        color: black;
+      }
+    }
+  }
+}
+
+.boxs {
+  margin: 15px 20px;
+  background-color: red;
+  padding: 20px;
+  &-container {
+    background-color: blue;
+    padding: 10px;
+    &-eleman {
+      color: white;
+      background-color: black;
+      padding: 12px 20px;
+    }
+  }
+}
+
+// * Scss Extend
+
+// Projeler içerisinde pekçok kez aynı özellikleri kullanığımızdan kod tekrarına düşeriz.Örneğin bir projede flexbox yapısı çokça kullanılabilir.Bu noktada bunun bir class olarak oluşturur ve gereken yerlerde miras alırız.Miras alırken class adının başına @extend eklenir.
+
+.flexboxClass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading-container {
+  background-color: aqua;
+  margin: 20px 5px;
+  padding: 0 5px;
+  @extend .flexboxClass;
+}
+
+.buttons-container {
+  background-color: brown;
+  margin: 20px 10px;
+  padding: 15px;
+  @extend .flexboxClass;
+}
+
+// * Scss Modules
+
+// Orta ve ileri düzey projelerde tüm elemanların stillendirilmesi tek scss dosyasında yapılırsa bunun yönetimi çok zor olacaktır.Bu nedenle projeyi modüllere ayırarak her bir modülü ayrı bir scss dosyasında yazmak daha mantıklı olacaktır.Bu sayede projenin yönetimi daha kolay olacaktır.Birden fazla scss dosyasıyla çalışılırken bir tane ana scss dosyası seçilir diğer scss dosyalarında yapılan kodlamalar @import 'SCSS_DOSYA_ADI' şeklinde import edilir.Bir diğer önemli husussa yardımcı scss dosyaları oluşturulurken başların '_' konulmasıdır.
+
+@import "./leftAside";
+@import "./rightAside";
+
+.example-btn {
+  padding: 3px 5px;
+  @include project-btn;
+}
+
+.main {
+  background-color: yellow;
+  margin: 10px 5px;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  text-align: center;
 }
