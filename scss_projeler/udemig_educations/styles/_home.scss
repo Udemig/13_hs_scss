@@ -24,6 +24,9 @@
       font-weight: 800;
       line-height: 1.2;
       margin-bottom: 20px;
+      @include tablet {
+        font-size: $h2-font;
+      }
     }
     p {
       font-size: $p-font;
