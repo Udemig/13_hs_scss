@@ -1,0 +1,14 @@
+@media (min-width: 768px) {
+  .home {
+    &-img {
+      width: 320px;
+    }
+    &-title {
+      font-size: 256px;
+      top: -64px;
+    }
+  }
+}
+
+@media (min-width: 1150px) {
+}

@@ -1,0 +1,91 @@
+.home {
+  &-container {
+    display: flex;
+    padding: 112px 16px;
+    position: relative;
+    row-gap: 40px;
+  }
+  // Content
+  &-content {
+    position: relative;
+    display: grid;
+    justify-self: center;
+  }
+  // Image
+  &-img {
+    width: 220px;
+  }
+  // Title
+  &-title {
+    font-size: $biggest-font-size;
+    color: $first-color;
+    position: absolute;
+    display: flex;
+    column-gap: 7px;
+    top: -65px;
+    justify-self: center;
+    // Bir elemanı kendi kapsayıcısı içerisinde yatayda hizalamak için kullanılır
+
+    span:nth-child(2) {
+      z-index: -1;
+    }
+  }
+  // Tooltip
+  &-tooltip {
+    position: absolute;
+    top: -8px;
+    right: 24px;
+    img {
+      width: 60px;
+    }
+    &-text {
+      position: absolute;
+      background: $gradient-color;
+      color: $white-color;
+      padding: 6px 12px;
+      border-radius: 64px;
+      transform: translate(60px, -40px);
+      font-weight: 600;
+      font-size: $small-font-size;
+    }
+  }
+  // Social
+  &-social {
+    display: grid;
+    place-items: center;
+    row-gap: 96px;
+    position: absolute;
+    top: 140px;
+    left: -80px;
+    &-text {
+      rotate: 90deg;
+      position: relative;
+      font-size: $small-font-size;
+      font-weight: $font-semi-bold;
+
+      &::after {
+        content: "";
+        background-color: $text-color;
+        width: 48px;
+        height: 1px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -64px;
+        margin: auto;
+      }
+    }
+    &-links {
+      display: grid;
+      row-gap: 12px;
+    }
+    &-link {
+      color: $text-color;
+      font-size: 20px;
+      transition: all 0.4s;
+      &:hover {
+        color: $first-color;
+      }
+    }
+  }
+}

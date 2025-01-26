@@ -1,0 +1,34 @@
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: transparent;
+  padding: 5px 20px;
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    // Logo
+    &-logo {
+      color: $first-color;
+      font-size: $h2-font-size;
+      font-weight: $font-semi-bold;
+    }
+    //List
+    &-list {
+      display: flex;
+      column-gap: 55px;
+    }
+    // Link
+    &-link {
+      color: $white-color;
+      font-weight: $font-medium;
+      transition: all 0.4s;
+      &:hover {
+        color: $first-color;
+      }
+    }
+  }
+}
