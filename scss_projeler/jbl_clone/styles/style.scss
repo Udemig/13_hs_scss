@@ -15,9 +15,14 @@
 // * Scss Import
 
 @import "./variables";
+@import "./responsive";
 @import "./header";
 @import "./home";
-@import "./responsive";
+@import "./about";
+@import "./favorites";
+@import "./model";
+@import "./sponsor";
+@import "./footer";
 
 body {
   background-color: $body-color;
@@ -76,4 +81,14 @@ img {
   &:hover {
     box-shadow: 0 12px 32px #271208;
   }
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 50px;
 }

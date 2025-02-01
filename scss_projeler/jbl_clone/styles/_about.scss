@@ -1,0 +1,12 @@
+.about {
+  &-data {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  img {
+    width: 280px;
+    justify-self: center;
+  }
+}
